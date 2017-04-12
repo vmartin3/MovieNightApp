@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1421" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="YbR-DH-4Ec">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="QHM-2q-ONK">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="YbR-DH-4Ec" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GmT-Bp-6Tb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="osD-ls-zBu">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="J3A-X2-VtQ" kind="relationship" relationship="rootViewController" id="WQ5-21-gBY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZV-UN-z8V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-859" y="-39"/>
+        </scene>
+        <!--ViewController-->
+        <scene sceneID="xeG-d6-KBE">
+            <objects>
+                <viewController title="ViewController" id="J3A-X2-VtQ" customClass="ViewController" customModule="MovieDBApp_Proj7" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vfe-6m-ZgY"/>
+                        <viewControllerLayoutGuide type="bottom" id="IgF-7c-vs9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cVy-q5-AjS">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-iphone6" translatesAutoresizingMaskIntoConstraints="NO" id="eJc-C1-ZaE" userLabel="background"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deb-47-GmI">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="ifU-IN-55s"/>
+                                    <constraint firstAttribute="width" constant="123" id="rOk-5j-qdp"/>
+                                </constraints>
+                                <state key="normal" image="bubble-empty"/>
+                                <connections>
+                                    <action selector="personOneBubbleSelected:" destination="J3A-X2-VtQ" eventType="touchUpInside" id="9Cg-hn-REu"/>
+                                    <segue destination="AN6-EE-Pzf" kind="show" id="EY2-D1-Opb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBd-A0-Tox" userLabel="Person Two Bubble">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="97" id="fe5-JS-x7U"/>
+                                    <constraint firstAttribute="width" constant="123" id="tqv-gV-Cd8"/>
+                                </constraints>
+                                <state key="normal" image="bubble-empty"/>
+                                <connections>
+                                    <action selector="personTwoBubbleSelected:" destination="J3A-X2-VtQ" eventType="touchUpInside" id="gpb-Kc-0dM"/>
+                                    <segue destination="AN6-EE-Pzf" kind="show" identifier="SeeResults" id="PiL-IZ-AgN"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jdZ-ML-M9R" userLabel="Person One Bubble Selected">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="0LP-Si-mWF"/>
+                                    <constraint firstAttribute="height" constant="97" id="Iff-se-Tfk"/>
+                                </constraints>
+                                <state key="normal" image="bubble-selected"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0I-MM-UKj" userLabel="Person Two Bubble Selected">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="123" id="Qw4-rm-wOP"/>
+                                    <constraint firstAttribute="height" constant="97" id="bfl-5v-h7t"/>
+                                </constraints>
+                                <state key="normal" image="bubble-selected"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="deb-47-GmI" secondAttribute="trailing" constant="204" id="1f6-ek-nYb"/>
+                            <constraint firstItem="e0I-MM-UKj" firstAttribute="top" secondItem="gBd-A0-Tox" secondAttribute="top" id="6Kg-Y7-bJu"/>
+                            <constraint firstItem="deb-47-GmI" firstAttribute="top" secondItem="vfe-6m-ZgY" secondAttribute="bottom" constant="227" id="Iuo-Bn-1dO"/>
+                            <constraint firstItem="eJc-C1-ZaE" firstAttribute="top" secondItem="cVy-q5-AjS" secondAttribute="top" id="JzY-nR-zDU"/>
+                            <constraint firstItem="eJc-C1-ZaE" firstAttribute="leading" secondItem="cVy-q5-AjS" secondAttribute="leading" id="QBA-ht-vAG"/>
+                            <constraint firstItem="jdZ-ML-M9R" firstAttribute="leading" secondItem="deb-47-GmI" secondAttribute="leading" id="QOI-0R-NBa"/>
+                            <constraint firstItem="IgF-7c-vs9" firstAttribute="top" secondItem="eJc-C1-ZaE" secondAttribute="bottom" id="Qaw-bK-uyN"/>
+                            <constraint firstItem="deb-47-GmI" firstAttribute="top" secondItem="gBd-A0-Tox" secondAttribute="top" id="RCq-O8-SNH"/>
+                            <constraint firstItem="gBd-A0-Tox" firstAttribute="leading" secondItem="deb-47-GmI" secondAttribute="trailing" constant="67" id="Rcg-Uh-fA3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="gBd-A0-Tox" secondAttribute="trailing" constant="14" id="cf7-kU-LHs"/>
+                            <constraint firstAttribute="trailing" secondItem="eJc-C1-ZaE" secondAttribute="trailing" id="quQ-ir-g9P"/>
+                            <constraint firstItem="e0I-MM-UKj" firstAttribute="leading" secondItem="gBd-A0-Tox" secondAttribute="leading" id="tbW-LK-6xL"/>
+                            <constraint firstItem="deb-47-GmI" firstAttribute="leading" secondItem="cVy-q5-AjS" secondAttribute="leadingMargin" constant="16" id="vvJ-iF-vAV"/>
+                            <constraint firstItem="jdZ-ML-M9R" firstAttribute="top" secondItem="deb-47-GmI" secondAttribute="top" id="yfQ-sa-LGI"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="xQr-ng-GDb"/>
+                        <barButtonItem title="Curate Personalized Movie List" id="Tbh-qi-IrV">
+                            <connections>
+                                <segue destination="AN6-EE-Pzf" kind="show" id="a8Q-6X-k62"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="HaD-xo-RYe"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" id="2xg-Ml-K6j"/>
+                    <connections>
+                        <outlet property="personOneBubble" destination="deb-47-GmI" id="FQ6-0s-xd1"/>
+                        <outlet property="personOneBubbleSelected" destination="jdZ-ML-M9R" id="pL2-Fq-2XH"/>
+                        <outlet property="personTwoBubble" destination="gBd-A0-Tox" id="Dgx-K6-gw8"/>
+                        <outlet property="personTwoBubbleSelected" destination="e0I-MM-UKj" id="w8T-Fj-COW"/>
+                        <outlet property="seeResults" destination="Tbh-qi-IrV" id="S48-gm-qpx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k3W-Gg-dG4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="61.600000000000001" y="-39.130434782608695"/>
+        </scene>
+        <!--Select Options-->
+        <scene sceneID="yXd-d2-891">
+            <objects>
+                <tableViewController storyboardIdentifier="GenreDetailView" title="Select Genre" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UgE-uu-g7G" userLabel="Select Options" customClass="GenreDetailView" customModule="MovieDBApp_Proj7" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="R8D-yQ-fa5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="genreCell" id="ry1-mb-4u8">
+                                <rect key="frame" x="0.0" y="92" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ry1-mb-4u8" id="a8J-sL-kMq">
+                                    <frame key="frameInset" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Movie Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Aq-Jm-zQn">
+                                            <frame key="frameInset" minX="49" minY="11" width="119" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="UgE-uu-g7G" id="EoV-aV-sj9"/>
+                            <outlet property="delegate" destination="UgE-uu-g7G" id="HjJ-bv-JQg"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title Here" id="jO5-8V-qIK">
+                        <barButtonItem key="rightBarButtonItem" title="Submit Input" id="Ywd-Bc-6Qm">
+                            <connections>
+                                <action selector="nextButtonPressedWithSender:" destination="UgE-uu-g7G" id="gc9-VG-9xJ"/>
+                                <segue destination="J3A-X2-VtQ" kind="show" identifier="homescreen" id="Zpw-u2-8aR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="genreTableView" destination="R8D-yQ-fa5" id="BiA-8x-2I2"/>
+                        <outlet property="topRightNavButton" destination="Ywd-Bc-6Qm" id="EnJ-qI-jxS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ljy-pQ-2fD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586" y="-39"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MiW-Fc-fpY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="AN6-EE-Pzf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M05-cZ-iOe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="C8d-6r-DdW">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="UgE-uu-g7G" kind="relationship" relationship="rootViewController" id="LJd-sC-of6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YDx-hq-OV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="812" y="-39.130434782608695"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bg-iphone6" width="751" height="1335"/>
+        <image name="bubble-empty" width="123" height="97"/>
+        <image name="bubble-selected" width="123" height="97"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Zpw-u2-8aR"/>
+        <segue reference="PiL-IZ-AgN"/>
+    </inferredMetricsTieBreakers>
+</document>
