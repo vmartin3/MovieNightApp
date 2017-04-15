@@ -1,6 +1,8 @@
 import UIKit
 
 var allSelectionsComplete: Bool = false
+var apiKey: String = "a112ce13136b883dc2d339cee0885e19"
+var urlBase: String = "https://api.themoviedb.org/3/"
 
 //Extension to take the id values of the genre and join them by a comma so they can be appended to the end of the URL query
 extension Array {
@@ -28,7 +30,7 @@ class ViewController: UIViewController {
         //Make API call to get genre once view loads but only once, not everytime the view loads
         var token: dispatch_once_t = 0
         dispatch_once(&token) { () -> Void in
-            networkingRequest.fetchData("https://api.themoviedb.org/3/genre/movie/list?api_key=a112ce13136b883dc2d339cee0885e19&language=en-US")
+            networkingRequest.fetchData("\(urlBase)genre/movie/list?api_key=\(apiKey)&language=en-US")
         }
         
     }
@@ -45,7 +47,7 @@ class ViewController: UIViewController {
         personTwo.completedSelections = true
     }
     
-    //This method adds the selected genre ids into an array of their own and appends them to the movedb discover request to get movies that match both users inputs
+    //This method adds the selected genre ids into an array of their own and appends them to the movedb discover request to get movies that match both users inputs. Segue is performed with 1 second delay
     func seeResults(sender: AnyObject) {
         allSelectionsComplete = true
         var genreIdArray = [AnyObject]()
@@ -56,7 +58,7 @@ class ViewController: UIViewController {
         }
         let joinedArray = genreIdArray.joinedValues
         print(finalResultsJson.description)
-        networkingRequest.fetchData("https://api.themoviedb.org/3/discover/movie?api_key=a112ce13136b883dc2d339cee0885e19&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=\(joinedArray)")
+        networkingRequest.fetchData("\(urlBase)discover/movie?api_key=\(apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=\(joinedArray)")
         dispatch_after(
             dispatch_time(DISPATCH_TIME_NOW, Int64(1.0 * Double(NSEC_PER_SEC))),
             dispatch_get_main_queue())

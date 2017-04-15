@@ -154,7 +154,6 @@
                     <navigationItem key="navigationItem" title="Title Here" id="jO5-8V-qIK">
                         <barButtonItem key="rightBarButtonItem" title="Submit Input" id="Ywd-Bc-6Qm">
                             <connections>
-                                <action selector="nextButtonPressedWithSender:" destination="UgE-uu-g7G" id="gc9-VG-9xJ"/>
                                 <segue destination="J3A-X2-VtQ" kind="show" identifier="homescreen" id="Zpw-u2-8aR"/>
                             </connections>
                         </barButtonItem>

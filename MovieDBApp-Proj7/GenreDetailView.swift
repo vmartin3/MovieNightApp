@@ -15,6 +15,8 @@ class GenreDetailView: UITableViewController {
         showAlert()
         genreTableView.delegate = self
         genreTableView.dataSource = self
+        topRightNavButton.action = #selector(submissionButtonPressed(_:))
+        topRightNavButton.target = self;
         self.genreTableView.allowsMultipleSelection = true
         setupView()
     }
@@ -28,11 +30,21 @@ class GenreDetailView: UITableViewController {
         }
     }
     
+    func reset(){
+        allSelectionsComplete = false
+        personOne.completedSelections = false
+        personOne.selectedOptions.removeAll()
+        personTwo.completedSelections = false
+        personTwo.selectedOptions.removeAll()
+        finalResultsJson.removeAll()
+        allCachedJsonData.removeAll()
+    }
+    
     func showAlert(){
         let alert = UIAlertController(title: "Hey There!", message: "Please select a 3 of your favorite movie genres! Your input will be used to curate a custom list of movies you might like!", preferredStyle: UIAlertControllerStyle.Alert)
         if personOne.completedSelections == true && personTwo.completedSelections == false {
             alert.title = "Hey There!"
-            alert.message = "Please select 2 of your favorite movie genres! Your input will be used to curate a custom list of movies you might like!"
+            alert.message = "Please select at most 2 of your favorite movie genres! Your input will be used to curate a custom list of movies you might like!"
         } else if allSelectionsComplete == true && finalResultsJson[0]["total_results"] as? Int == 0{
             alert.title = "Oops!"
             alert.message = "We didn't find any movie results with those genre combinations, please try again!"
@@ -92,6 +104,16 @@ class GenreDetailView: UITableViewController {
     
     override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .None
+    }
+    
+    func submissionButtonPressed(sender: AnyObject) {
+        if allSelectionsComplete == true{
+            reset()
+            performSegueWithIdentifier("homescreen", sender: self)
+        }
+        else {
+            performSegueWithIdentifier("homescreen", sender: self)
+        }
     }
     
 }
