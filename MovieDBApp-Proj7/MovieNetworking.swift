@@ -37,7 +37,6 @@ class MovieNetworking {
                     //If both users selected their genres then add the movie data that matches both their genre inputs into this array if not then add json results into the array holding their genre selections
                     if allSelectionsComplete == true {
                         finalResultsJson.append(jsonData)
-                        //print(finalResultsJson.description)
                     } else {
                         allCachedJsonData.append(jsonData)
                     }

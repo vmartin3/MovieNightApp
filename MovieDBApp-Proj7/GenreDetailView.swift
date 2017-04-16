@@ -61,6 +61,17 @@ class GenreDetailView: UITableViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    
+    func submissionButtonPressed(sender: AnyObject) {
+        if allSelectionsComplete == true{
+            reset()
+            performSegueWithIdentifier("homescreen", sender: self)
+        }
+        else {
+            performSegueWithIdentifier("homescreen", sender: self)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -106,14 +117,5 @@ class GenreDetailView: UITableViewController {
         tableView.cellForRowAtIndexPath(indexPath)?.accessoryType = .None
     }
     
-    func submissionButtonPressed(sender: AnyObject) {
-        if allSelectionsComplete == true{
-            reset()
-            performSegueWithIdentifier("homescreen", sender: self)
-        }
-        else {
-            performSegueWithIdentifier("homescreen", sender: self)
-        }
-    }
     
 }
